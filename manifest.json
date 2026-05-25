@@ -1,0 +1,50 @@
+{
+    "manifest_version": 3,
+    "name": "Gmail Tagger",
+    "version": "1.0",
+    "description": "Thêm tag tùy chỉnh (màu sắc, icon) cho Gmail.",
+    "permissions": [
+        "storage",
+        "activeTab"
+    ],
+    "host_permissions": [
+        "https://mail.google.com/*"
+    ],
+    "action": {
+        "default_popup": "popup/popup.html",
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"
+        }
+    },
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://mail.google.com/*"
+            ],
+            "js": [
+                "content/content.js"
+            ],
+            "css": [
+                "content/content.css",
+                "content/fa.css"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "webfonts/*"
+            ],
+            "matches": [
+                "https://mail.google.com/*"
+            ]
+        }
+    ]
+}
